@@ -21,7 +21,8 @@ async function join() {
 
 
 // Link join function to join button and add channel
-$("#join-form").submit(async function (e) { // The default would be to reload the page; we are preventing that
+$("#join-form").submit(async function (e) { 
+    // The default would be to reload the page; we are preventing that
     e.preventDefault();
     if ($("#emailText").val().match(/\S+@\S+/)) {
         document.getElementById("emailText").setAttribute("class", "border-primary")
@@ -30,11 +31,7 @@ $("#join-form").submit(async function (e) { // The default would be to reload th
         } else {
             document.getElementById("passwordText").setAttribute("class", "border-primary")
             options.channel = $("#channel").val();
-            // option.uid = await client.join(option.appid, option.channel, null, null)
-            // console.log(option.uid)
             try {
-                // console.log(option)
-                // join(rtc, option);
                 join();
             } catch (e) {
                 console.error(e)
